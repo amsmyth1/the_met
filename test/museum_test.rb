@@ -4,7 +4,8 @@ require './lib/exhibit'
 require './lib/patron'
 require './lib/museum'
 
-class MeseumTest < Minitest::Test
+class MuseumTest < Minitest::Test
+
   def setup
     @dmns = Museum.new("Denver Museum of Nature and Science")
     @gems_and_minerals = Exhibit.new({name: "Gems and Minerals", cost: 0})
@@ -18,9 +19,16 @@ class MeseumTest < Minitest::Test
     @patron_2.add_interest("IMAX")
   end
 
-  def test_it_exists_with_readable_attributes
+  def test_it_exists
+    dmns = Museum.new("Denver Museum of Nature and Science")
+
     assert_instance_of Museum, @dmns
+  end
+
+  def test_it_has_readable_attributes
+    dmns = Museum.new("Denver Museum of Nature and Science")
+
     assert_equal "Denver Museum of Nature and Science", @dmns.name
     assert_empty @dmns.exhibits
   end
-end 
+end

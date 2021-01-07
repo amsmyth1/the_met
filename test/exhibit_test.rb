@@ -3,4 +3,10 @@ require 'minitest/pride'
 require './lib/exhibit'
 
 class ExhibitTest < Minitest::Test
-end 
+
+  def test_it_exists
+    ex = Exhibit.new
+
+    assert_instance_of Exhibit, ex
+  end
+end

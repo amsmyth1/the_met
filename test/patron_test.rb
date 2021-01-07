@@ -10,6 +10,7 @@ class PatronTest < Minitest::Test
 
     assert_instance_of Patron, patron
     assert_equal "Bob", patron.name
-    assert_equal 20, patron.spending_money 
+    assert_equal 20, patron.spending_money
+    assert_empty patron.interests
   end
 end

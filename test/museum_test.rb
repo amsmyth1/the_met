@@ -33,6 +33,7 @@ class MuseumTest < Minitest::Test
 
     assert_equal "Denver Museum of Nature and Science", @dmns.name
     assert_empty @dmns.exhibits
+    assert_empty @dmns.patrons 
   end
 
   def test_add_exbits
@@ -63,5 +64,13 @@ class MuseumTest < Minitest::Test
 
     assert_equal [@imax], @dmns.recommend_exhibits(@patron_2a)
     assert_equal [@gems_and_minerals, @dead_sea_scrolls], @dmns.recommend_exhibits(@patron_1)
+  end
+
+  def test_it_can_admit_and_track_patrons
+    @dmns.admit(@patron_1)
+    @dmns.admit(@patron_2)
+    @dmns.admit(@patron_3)
+
+    assert_equal [@patron_1, @patron_2, @patron_3], @dmns.patrons
   end
 end

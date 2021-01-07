@@ -4,9 +4,18 @@ require './lib/exhibit'
 
 class ExhibitTest < Minitest::Test
 
-  def test_it_exists
-    ex = Exhibit.new
-
-    assert_instance_of Exhibit, ex
+  def setup
+    @exhibit = Exhibit.new({name: "Gems and Minerals", cost: 0})
   end
+
+  def test_it_exists
+
+    assert_instance_of Exhibit, @exhibit
+  end
+
+  def test_it_has_readable_attributes
+
+    assert_equal "Gems and Minerals", @exhibit.name
+    assert_equal 0, @exhibit.cost
+  end 
 end

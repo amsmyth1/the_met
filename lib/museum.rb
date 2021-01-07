@@ -26,6 +26,41 @@ class Museum
   end
 
   def admit(patron)
-    @patrons << patron 
+    @patrons << patron
+  end
+
+  # def patrons_by_exhibit_interest
+  #   @patrons.map do |patron|
+  #     @patrons_by_exhibit_interest.map do |exhibit_key|
+  #       exhibit_match(exhibit_key[0], patron)
+  #     end
+  #   end
+  # end
+  #
+  # def create_exhibits_as_keys
+  #   @patrons_by_exhibit_interest = {}
+  #   @exhibits.each do |exhibit|
+  #     @patrons_by_exhibit_interest[exhibit] = []
+  #   end
+  #   @patrons_by_exhibit_interest
+  # end
+
+  # def exhibit_recommended_patrons
+  #   hash = {}
+  #   @exhibits.map do |exhibit|
+  #     exhibit.
+  #
+  #   hash
+  # end
+
+  def patron_array
+    hash = {}
+    @patrons.map do |patron|
+      @exhibits.each do |exhibit|
+        if !exhibit_match(exhibit, patron).empty?
+          hash[exhibit] = patron
+        end 
+      end
+    end
   end
 end

@@ -20,15 +20,24 @@ class MuseumTest < Minitest::Test
   end
 
   def test_it_exists
-    dmns = Museum.new("Denver Museum of Nature and Science")
 
     assert_instance_of Museum, @dmns
   end
 
   def test_it_has_readable_attributes
-    dmns = Museum.new("Denver Museum of Nature and Science")
 
     assert_equal "Denver Museum of Nature and Science", @dmns.name
     assert_empty @dmns.exhibits
+  end
+
+  def test_add_exbits
+
+    assert_empty @dmns.exhibits
+
+    @dmns.add_exhibit(gems_and_minerals)
+    @dmns.add_exhibit(dead_sea_scrolls)
+    @dmns.add_exhibit(imax)
+
+    assert_equal [gems_and_minerals, dead_sea_scrolls, imax], @dmns.exhibits 
   end
 end

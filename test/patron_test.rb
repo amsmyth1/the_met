@@ -5,7 +5,7 @@ require './lib/patron'
 
 class PatronTest < Minitest::Test
   def setup
-    @patron = Patron.new("Bob", 20)
+    @patron_1 = Patron.new("Bob", 20)
     @patron_1.add_interest("Dead Sea Scrolls")
     @patron_1.add_interest("Gems and Minerals")
   end
